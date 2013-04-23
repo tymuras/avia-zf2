@@ -1,0 +1,58 @@
+<?php
+
+$title = 'Task list';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php // <-- Add this !!
+echo $this->navigation('navigation')->menu();
+?>
+
+<?php
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('task', array('action' => 'index')));
+$form->prepare();
+echo '<hr>';
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+echo '<hr>';
+
+?>
+
+<table class="table">
+<tr>
+    <th>Title</th>
+    <th>Artist</th>
+	<th>Due date</th>
+	<th>Priority</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($this->paginator as $task) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($task->title);?></td>
+    <td><?php echo $this->escapeHtml($task->artist);?></td>
+	<td><?php echo $this->escapeHtml($task->due_date);?></td>
+	<td><?php echo $this->escapeHtml($task->priority);?></td>
+    <td>
+        <a href="<?php echo $this->url('task',
+            array('action'=>'edit', 'id' => $task->id));?>">Edit</a>
+        <a href="<?php echo $this->url('task',
+            array('action'=>'delete', 'id' => $task->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<?php // add at the end of the file after the table
+echo $this->paginationControl(
+$this->paginator,
+'Sliding',		
+array('partial/paginator.phtml', 'Task'),
+array(
+'route' => 'task'
+)
+);
+?>
