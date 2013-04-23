@@ -9,20 +9,16 @@ $this->headTitle($title);
 echo $this->navigation('navigation')->menu();
 ?>
 
-<p>
-    <a href="<?php echo $this->url('album', array('action'=>'add'));?>">Add new album</a>
-</p>
-
 <?php
-
 
 $form = $this->form;
 $form->setAttribute('action', $this->url('album', array('action' => 'index')));
 $form->prepare();
-
+echo '<hr>';
 echo $this->form()->openTag($form);
 echo $this->formCollection($form);
 echo $this->form()->closeTag();
+echo '<hr>';
 
 ?>
 

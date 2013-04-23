@@ -87,40 +87,11 @@ return array(
 	'navigation' => array(
     'default' => array(
         array(
-            'label' => 'Add',
+            'label' => 'New task',
             'route' => 'album',	
 			'action' => 'add',
 			'params' => array('b'=> 1),
 			
-        ),
-		
-		array(
-            'label' => 'Homesss',
-            'uri' => 'http://www.zend-project.com/',
-			'bulba' => 'aa',
-			'params' => array('b'=> 1),
-			 'resource' => 'pants'
-        ),
-        array(
-            'label' => 'Album',
-            'route' => 'album',
-            'pages' => array(
-                array(
-                    'label' => 'Add',
-                    'route' => 'album',
-                    'action' => 'add',
-                ),
-                array(
-                    'label' => 'Edit',
-                    'route' => 'album',
-                    'action' => 'edit',
-                ),
-                array(
-                    'label' => 'Delete',
-                    'route' => 'album',
-                    'action' => 'delete',
-                ),
-            ),
         ),
     ),
 )

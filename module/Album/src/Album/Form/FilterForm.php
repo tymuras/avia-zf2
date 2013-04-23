@@ -20,27 +20,29 @@ class FilterForm extends Form
 		
 		$this->add(array(
             'type' => 'Zend\Form\Element\Select',
-            'name' => 'filetr',
+            'name' => 'filter',
             'options' => array(
-                'label' => 'Filter',
+                'label' => null,
                 'value_options' => array(
-                    '1' => 'Today task',
-                    '2' => 'Late task',
-                    '3' => 'Important tasks'
+                    '1' => ' - show all tasks -',
+                    '2' => 'show late tasks',
+                    '3' => 'show important tasks'
                 ),
             ),
             'attributes' => array(
                 'value' => '1' //set selected to '1'
             )
         ));
-		
+		/*
         $this->add(array(
             'name' => 'submit',
             'attributes' => array(
                 'type'  => 'submit',
-                'value' => 'Filter',
+                'value' => 'dd',
                 'id' => 'submitbutton',
             ),
         ));
+		*/
+		
     }
 }
